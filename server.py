@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
 import requests
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/api/solar_cep/<string:cep>/<float:peakpower>', methods=['GET'])
 def get_solar_data_from_cep(cep, peakpower):
